@@ -7,19 +7,19 @@
 
   <input type="text" [(ngModel)]="searchQuery" placeholder="Buscar por título, tipo ou status" />
 
-<div *ngFor="let task of filteredTasks" (click)="task.showEdit = !task.showEdit">
+  <div *ngFor="let task of filteredTasks" (click)="task.showEdit = !task.showEdit">
     <div [class.completed]="task.status === 'concluída'">
-        <h3>{{ task.title }} - {{ task.status }}</h3>
-        <p *ngIf="task.showEdit">{{ task.description }}</p>
-        <p>Tipo: {{ task.type }}</p>
-        <button *ngIf="task.showEdit" (click)="onEdit(task)">📝</button>
-        <button *ngIf="task.showEdit && task.id !== undefined" (click)="onDelete(task.id)">🗑️</button>
+      <h3>{{ task.title }} - {{ task.status }}</h3>
+      <p *ngIf="task.showEdit">{{ task.description }}</p>
+      <p>Tipo: {{ task.type }}</p>
+      <button *ngIf="task.showEdit" (click)="onEdit(task)">📝</button>
+      <button *ngIf="task.showEdit && task.id !== undefined" (click)="onDelete(task.id)">🗑️</button>
     </div>
-</div>
+  </div>
 </ul>
 
-<div id="modal" class="animate__animated animate__zoomIn" *ngIf="mode === 'add'">
-  <h2>Nova Tarefa</h2>
-  <app-todo-form [task]="selectedTask!" (save)="onSave($event)"></app-todo-form>
+<div id="modal" class="animate__animated animate__zoomIn" *ngIf="mode === 'add' || mode === 'edit'">
+  <h2>{{ mode === 'add' ? 'Nova Tarefa' : 'Editar Tarefa' }}</h2>
+  <app-todo-form [task]="selectedTask!" (save)="onSave()"></app-todo-form>
   <button class="btn btn-secondary mt-3" (click)="changeMode('list')">Cancelar</button>
 </div>

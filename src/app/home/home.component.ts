@@ -14,9 +14,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   tasks: Todo[] = [];
-  newTask: Todo = { id: 0, title: '', description: '', status: 'pendente', type: '' };
   selectedTask: Todo | null = null;
-  mode: 'list' | 'add' = 'list';
+  mode: 'list' | 'add' | 'edit' = 'list';
   searchQuery: string = '';
 
   constructor(private taskService: TodoService) {}
@@ -31,7 +30,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  changeMode(mode: 'list' | 'add') {
+  changeMode(mode: 'list' | 'add' | 'edit') {
     this.mode = mode;
     if (mode === 'add') {
       this.selectedTask = { id: 0, title: '', description: '', status: 'pendente', type: '' };
@@ -42,20 +41,23 @@ export class HomeComponent implements OnInit {
 
   onEdit(task: Todo) {
     this.selectedTask = { ...task };
-    this.changeMode('add');
+    this.mode = 'edit';
   }
 
   onDelete(id: number) {
     this.taskService.deleteTask(id).subscribe(() => this.loadTasks());
   }
 
-  onSave(task: Todo) {
-    if (task.id) {
-      this.taskService.updateTask(task).subscribe(() => this.loadTasks());
-    } else {
-      this.taskService.addTask(task).subscribe(() => {
+  onSave() {
+    if (this.selectedTask && this.selectedTask.id) {
+      this.taskService.updateTask(this.selectedTask).subscribe(() => {
         this.loadTasks();
-        this.changeMode('list');
+        this.changeMode('list'); 
+      });
+    } else {
+      this.taskService.addTask(this.selectedTask!).subscribe(() => {
+        this.loadTasks();
+        this.changeMode('list'); 
       });
     }
   }
