@@ -1,6 +1,8 @@
 export interface Todo {
-    id: number;
+    id?: number;
     title: string;
     description: string;
-    status: 'pending' | 'in-progress' | 'completed';
+    status: 'pendente' | 'em progresso' | 'concluída';
+    type: string;
+    showEdit?: boolean;
   }

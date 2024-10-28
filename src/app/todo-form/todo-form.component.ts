@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./todo-form.component.css' ] 
 })
 export class TodoFormComponent {
-  @Input() task: Todo = { id: 0, title: '', description: '', status: 'pending' };
+  @Input() task: Todo = { id: 0, title: '', description: '', status: 'pendente', type: '' };
   @Output() save = new EventEmitter<Todo>();
   @Output() cancel = new EventEmitter<void>();
 
