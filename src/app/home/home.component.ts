@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   changeMode(mode: 'list' | 'add' | 'edit') {
     this.mode = mode;
     if (mode === 'add') {
-      this.selectedTask = { id: 0, title: '', description: '', status: 'pendente', type: '' };
+      this.selectedTask = { id: 0, title: '', description: '', status: 'Pendente', type: '' };
     } else {
       this.selectedTask = null;
     }

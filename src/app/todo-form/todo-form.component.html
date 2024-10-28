@@ -1,22 +1,23 @@
 <form (ngSubmit)="onSubmit()">
   <div>
-    <label for="title">Título</label>
+    <label for="title">Título:</label>
     <input [(ngModel)]="task.title" name="title" required />
   </div>
   <div>
     <label for="description">Descrição:</label>
-    <textarea [(ngModel)]="task.description" name="description"></textarea>
+    <input [(ngModel)]="task.description" name="description"/>
   </div>
   <div>
     <label for="status">Status:</label>
     <select [(ngModel)]="task.status" name="status" required>
-      <option value="pendente">Pendente</option>
-      <option value="em progresso">Em Progresso</option>
-      <option value="concluída">Concluída</option>
+      <option value="Pendente">Pendente</option>
+      <option value="Em progresso">Em Progresso</option>
+      <option value="Concluída">Concluída</option>
     </select>
   </div>
   <div>
+    <label for="title">Tipo:</label>
     <input [(ngModel)]="task.type" placeholder="Tipo" required name="taskType"/>
   </div>
-  <button type="submit">Adicionar</button>
+  <button class="btn-custom" type="submit">Adicionar</button>
 </form>
