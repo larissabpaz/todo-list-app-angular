@@ -1,27 +1,33 @@
-# TodoListAppAngular
+# Todo List Project in Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+## Descrição geral
 
-## Development server
+O front-end deste projeto é uma aplicação de gerenciamento de tarefas desenvolvida em Angular, utilizando a linguagem TypeScript. A interface é responsiva e intuitiva, permitindo que os usuários interajam facilmente com a aplicação.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Funcionalidades Principais
 
-## Code scaffolding
+Gerenciamento de Tarefas: Os usuários podem criar, editar, atualizar e excluir tarefas.
+Filtro de Tarefas: Possibilidade de filtrar tarefas por prioridade ou categoria, ao digitar na barra de pesquisa.
+Modal para Criação/Edição: A utilização de modais facilita a criação e edição de tarefas, melhorando a experiência do usuário.
+Integração com API: O front-end está integrado a uma API construída em ASP.NET Core, permitindo a comunicação e o gerenciamento de dados de tarefas.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Estrutura do Projeto
+A aplicação é organizada em componentes reutilizáveis, otimizando a manutenção e escalabilidade do código. As dependências são gerenciadas pelo npm e podem ser instaladas na raiz do projeto.
 
-## Build
+## Instalação
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Para configurar o projeto localmente, siga as etapas abaixo:
 
-## Running unit tests
+Clone o repositório:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+git clone [Repository Front End](https://github.com/larissabpaz/todo-list-app-angular)
 
-## Running end-to-end tests
+Instale as dependências:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+npm install Inicie o servidor: Antes de rodar o aplicativo, certifique-se de que o servidor de backend está rodando. Para isso, execute:
 
-## Further help
+## Execução
+Para executar a aplicação, utilize o comando `ng serve` na raiz do projeto. A aplicação estará acessível em http://localhost:4200.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para executar a aplicação e configurar um proxy para redirecionar requisições de API durante o desenvolvimento, utilize o comando `ng serve --proxy-config proxy.conf.json`. O repositório referente a API é este: [Repository Back End](https://github.com/larissabpaz/TodoAngularApi).

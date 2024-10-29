@@ -3,7 +3,7 @@
 <button class="btn-custom mb-3 mb-3 animate__animated animate__fadeInUp" (click)="changeMode('add')" *ngIf="mode === 'list'">Nova Tarefa</button>
 
 <ul class="list-group animate__animated animate__zoomIn" *ngIf="mode === 'list'">
-  <p *ngIf="tasks.length === 0"><small>Você ainda não tem nenhuma tarefa!</small></p>
+  <p *ngIf="tasks.length === 0"><small>Ops! Você ainda não tem nenhuma tarefa.</small></p>
 
   <input class="search-input" type="text" [(ngModel)]="searchQuery" placeholder="Buscar tarefa" />
 
@@ -13,8 +13,8 @@
         <p *ngIf="task.showEdit">{{ task.description }}</p>
         <p>Tipo: {{ task.type }}</p>
         <p>
-            <button *ngIf="task.showEdit" class="btn-custom" (click)="onEdit(task)">📝</button>
-            <button *ngIf="task.showEdit && task.id !== undefined" class="btn-custom" (click)="onDelete(task.id)">🗑️</button>
+            <button *ngIf="task.showEdit" class="btn-custom" (click)="onEdit(task)" title="Edite a tarefa">📝</button>
+            <button *ngIf="task.showEdit && task.id !== undefined" class="btn-custom" title="Exclua a tarefa" (click)="onDelete(task.id)">🗑️</button>
         </p>
     </div>
   </div>
